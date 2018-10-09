@@ -34,8 +34,6 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        
-        
         if saveData.array(forKey: "service") != nil{
             serviceArray = saveData.array(forKey: "service") as! [String]
         }
