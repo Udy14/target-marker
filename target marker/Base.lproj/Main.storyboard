@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetCell" rowHeight="129" id="WIJ-e3-ubE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetCell" rowHeight="129" id="WIJ-e3-ubE" customClass="TargetTableViewCell" customModule="target_marker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WIJ-e3-ubE" id="Wd6-ak-bDJ">
@@ -62,6 +62,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="agelabel" destination="ZsD-co-T5C" id="Hzf-mH-tF9"/>
+                                            <outlet property="genderlabel" destination="iF2-Mp-oB8" id="SSo-y8-ogE"/>
+                                            <outlet property="servicelabel" destination="OI9-1d-3d4" id="lSI-o6-3FK"/>
+                                            <outlet property="sonotalabel" destination="AGJ-SD-STv" id="K4V-8T-Lfa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -121,16 +127,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUh-1P-NxT">
-                                <rect key="frame" x="105" y="481" width="166" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.176744339" green="1" blue="0.95462110440000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="追加する"/>
-                                <connections>
-                                    <action selector="add" destination="Fxb-GC-mdX" eventType="touchUpInside" id="k3M-ND-YCs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4up-Jh-P6M"/>
@@ -139,6 +135,11 @@
                         <barButtonItem key="leftBarButtonItem" title="戻る" style="done" id="z9v-H8-JTe">
                             <connections>
                                 <action selector="back" destination="Fxb-GC-mdX" id="1iA-MP-iH2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="保存" style="done" id="prb-m9-jQh">
+                            <connections>
+                                <action selector="add" destination="Fxb-GC-mdX" id="5Bt-V9-LXi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -151,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1M-hW-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2628" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SyZ-HN-jrw">

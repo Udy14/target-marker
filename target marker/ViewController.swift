@@ -33,6 +33,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        
+        
         if saveData.array(forKey: "service") != nil{
             serviceArray = saveData.array(forKey: "service") as! [String]
         }
@@ -45,7 +48,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         if saveData.array(forKey: "sonota") != nil{
             sonotaArray = saveData.array(forKey: "sonota") as! [String]
         }
-        
+        targetTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +64,21 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            serviceArray.remove(at: indexPath.row)
+            saveData.set(serviceArray, forKey: "service")
+            genderArray.remove(at: indexPath.row)
+            saveData.set(genderArray, forKey: "gender")
+            ageArray.remove(at: indexPath.row)
+            saveData.set(ageArray, forKey: "age")
+            sonotaArray.remove(at: indexPath.row)
+            saveData.set(sonotaArray, forKey: "sonota")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
     
     
 

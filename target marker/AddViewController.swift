@@ -38,27 +38,31 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func add(){
-        if servicetextfield?.text != ""{
-            serviceArray = saveData.array(forKey: "service") as! [String]
+        if servicetextfield?.text != nil{
             serviceArray.append((servicetextfield?.text)!)
+            serviceArray = saveData.array(forKey: "service") as! [String]
             saveData.set(serviceArray, forKey: "service")
             print(serviceArray)
         }
+        
+        
+        
+        
         if gendertextfield?.text != ""{
+            genderArray.append((gendertextfield?.text)!)
             genderArray = saveData.array(forKey: "gender") as! [String]
-            serviceArray.append((gendertextfield?.text)!)
             saveData.set(genderArray, forKey: "gender")
             print(genderArray)
         }
         if agetextfield?.text != ""{
-            ageArray = saveData.array(forKey: "age") as! [String]
             ageArray.append((agetextfield?.text)!)
+            ageArray = saveData.array(forKey: "age") as! [String]
             saveData.set(ageArray, forKey: "age")
             print(ageArray)
         }
         if sonotatextfield?.text != ""{
-            sonotaArray = saveData.array(forKey: "sonota") as! [String]
             sonotaArray.append((sonotatextfield?.text)!)
+            sonotaArray = saveData.array(forKey: "sonota") as! [String]
             saveData.set(sonotaArray, forKey: "sonota")
             print(sonotaArray)
         }
