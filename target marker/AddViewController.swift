@@ -34,45 +34,51 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     
     
     @IBAction func add(){
-        if servicetextfield?.text != nil{
+        if servicetextfield?.text != ""{
+            if saveData.array(forKey: "service") != nil{
+                serviceArray = saveData.array(forKey: "service") as! [String]
+            }
             serviceArray.append((servicetextfield?.text)!)
-            serviceArray = saveData.array(forKey: "service") as! [String]
             saveData.set(serviceArray, forKey: "service")
             print(serviceArray)
         }
         
-        
-        
-        
         if gendertextfield?.text != ""{
-            genderArray.append((gendertextfield?.text)!)
-            genderArray = saveData.array(forKey: "gender") as! [String]
+            if saveData.array(forKey: "gender") != nil{
+                genderArray.append((gendertextfield?.text)!)
+                genderArray = saveData.array(forKey: "gender") as! [String]
+            }
             saveData.set(genderArray, forKey: "gender")
             print(genderArray)
         }
+        
         if agetextfield?.text != ""{
-            ageArray.append((agetextfield?.text)!)
-            ageArray = saveData.array(forKey: "age") as! [String]
+            if saveData.array(forKey: "age") != nil{
+                ageArray.append((agetextfield?.text)!)
+                ageArray = saveData.array(forKey: "age") as! [String]
+            }
             saveData.set(ageArray, forKey: "age")
             print(ageArray)
         }
         if sonotatextfield?.text != ""{
+            if saveData.array(forKey: "sonota") != nil{
             sonotaArray.append((sonotatextfield?.text)!)
             sonotaArray = saveData.array(forKey: "sonota") as! [String]
-            saveData.set(sonotaArray, forKey: "sonota")
-            print(sonotaArray)
         }
-        self.dismiss(animated: true, completion: nil)
+        saveData.set(sonotaArray, forKey: "sonota")
+        print(sonotaArray)
     }
-    
-    
-    @IBAction func back(){
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
+    self.dismiss(animated: true, completion: nil)
+}
+
+
+@IBAction func back(){
+    self.dismiss(animated: true, completion: nil)
+}
+
+
 }
